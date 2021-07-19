@@ -1,0 +1,52 @@
+\chapter{Measurements for AxBench Applications}
+\label{ch:appendixA}
+
+\begin{table}[thbp]
+	\centering
+	\caption{Time measurements for AxBench applications (nanoseconds).}
+	\label{tab:raw_time_axbench}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+			\hline
+			\textbf{Platform}              & \textbf{Measurement} & \textbf{blackscholes} & \textbf{inversek2j} & \textbf{jmeint} & \textbf{kmeans} & \textbf{sobel} \\ \hline
+			\multirow{8}{*}{\textbf{PC}}   & Original code        & 12224                 & 70804               & 36483           & 149084          & 130821         \\ \cline{2-7} 
+			& OV CPU (NN 1)        & 4108                  & 9698                & 22572           & 847731          & 68636          \\ \cline{2-7} 
+			& OV MYRIAD (NN 1)     & 32129                 & 86233               & 326174          & 5707387         & 450249         \\ \cline{2-7} 
+			& OV MYRIAD USB2       & 147127                & 402953              & 1872465         & 33734206        & 1833880        \\ \cline{2-7} 
+			& OV CPU (NN 2)        & 6600                  & 11847               & 24721           & 846761          & 76582          \\ \cline{2-7} 
+			& OV MYRIAD (NN 2)     & 34616                 & 82474               & 340231          & 5667970         & 578209         \\ \cline{2-7} 
+			& OV CPU (NN 3)        & 7969                  & 12830               & 26571           & 848350          & 81531          \\ \cline{2-7} 
+			& OV MYRIAD (NN 3)     & 40629                 & 90092               & 361311          & 5696227         & 745561         \\ \hline
+			\multirow{2}{*}{\textbf{RPi3}} & Original code        & 152695                & 607658              & 190794          & 2053881         & 905649         \\ \cline{2-7} 
+			& OV MYRIAD            & 172422                & 471115              & 2257072         & 44081815        & 2313934        \\ \hline
+			\multirow{3}{*}{\textbf{RPi4}} & Original code        & 58007                 & 293278              & 113053          & 565203          & 555553         \\ \cline{2-7} 
+			& OV MYRIAD            & 45608                 & 120741              & 469744          & 12460832        & 661277         \\ \cline{2-7} 
+			& OV MYRIAD USB2       & 184947                & 496012              & 2506141         & 48206986        & 2424196        \\ \hline
+		\end{tabular}%
+	}
+\end{table}
+
+\begin{table}[thbp]
+	\centering
+	\caption{Error measurements for AxBench applications.}
+	\label{tab:error_axbench}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|l|l|l|}
+			\hline
+			\textbf{Application}                   & \textbf{Error type} & \textbf{CPU (NN 1)} & \textbf{MYRIAD (NN 1)} & \textbf{CPU (NN 2)} & \textbf{MYRIAD (NN 2)} & \textbf{CPU (NN 3)} & \textbf{MYRIAD (NN 3)} \\ \hline
+			\multirow{3}{*}{\textbf{blackscholes}} & WMAPE               & 3.03                & 5.54                   & 0.85                & 2.93                   & 0.83                & 3.93                   \\ \cline{2-8} 
+			& MAPE                & 18.73               & 23.83                  & 12.21               & 15.58                  & 9.80                & 16.59                  \\ \cline{2-8} 
+			& MSE                 & 5.37E-04            & 1.47E-03               & 4.53E-05            & 4.09E-04               & 3.35E-05            & 6.57E-04               \\ \hline
+			\multirow{3}{*}{\textbf{inversek2j}}   & WMAPE               & 4.34                & 4.32                   & 1.92                & 1.99                   & 1.45                & 1.55                   \\ \cline{2-8} 
+			& MAPE                & 10.84               & 10.81                  & 6.14                & 6.27                   & 5.18                & 5.35                   \\ \cline{2-8} 
+			& MSE                 & 1.90E-01            & 1.90E-01               & 4.38E-02            & 4.69E-02               & 2.76E-02            & 3.15E-02               \\ \hline
+			\multirow{3}{*}{\textbf{kmeans}}       & WMAPE               & 4.07                & 4.07                   & 3.99                & 3.97                   & 1.18                & 1.27                   \\ \cline{2-8} 
+			& MAPE                & 5.23                & 5.24                   & 5.21                & 5.23                   & 1.31                & 1.40                   \\ \cline{2-8} 
+			& MSE                 & 17912               & 17778                  & 16008               & 16018                  & 4927                & 5332                   \\ \hline
+			\multirow{3}{*}{\textbf{sobel}}        & WMAPE               & 8.01                & 8.31                   & 3.80                & 4.40                   & 5.74                & 5.60                   \\ \cline{2-8} 
+			& MAPE                & 16.00               & 17.56                  & 9.29                & 11.53                  & 18.40               & 17.48                  \\ \cline{2-8} 
+			& MSE                 & 15572               & 15915                  & 4942                & 5230                   & 6752                & 6840                   \\ \hline
+			\textbf{jmeint}                        & Miss rate           & 15.65               & 15.66                  & 14.2                & 14.17                  & 14.18               & 14.23                  \\ \hline
+		\end{tabular}%
+	}
+\end{table}

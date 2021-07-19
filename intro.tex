@@ -1,0 +1,51 @@
+\chapter{Introduction}
+\label{ch:intro}
+
+\section{Approximate Computing}
+
+Although semiconductor technologies have advanced tremendously over the years, energy consumption of computing systems is growing rapidly as they become more complex and the need to process more data grows. On top of this, many computing systems are increasingly becoming embedded and mobile, which restricts energy consumption, thermal design power (TDP) and computing power \cite{Xu2016}.
+
+There are many modern applications that can tolerate inexact computations in some parts of their execution, such as: image rendering, signal processing, augmented reality, data mining, robotics and speech recognition \cite{Yazdanbakhsh2016}. Applications where the user will not notice a difference are also suitable candidates to apply approximate computing, for example, occasionally dropping frames in a video streaming application might go undetected. Similarly, in a search engine, no exact answer is correct, the user might not mind a result being one position above or below. Another example is image compression, where a few pixels with small color differences are not perceptible to the human eye. Other examples include applications that process noisy and redundant data from sources like sensors or applications that deal with stochastic and probabilistic algorithms. All these examples have in common that they usually do not require to give a unique or ``golden'' numerical result, they can compute acceptable results instead of precise outputs. In general, applications that feature an intrinsic error-resilience property are suitable for approximate computing.
+
+Approximate computing is a design paradigm that trades off the accuracy of results in order to improve energy efficiency and execution time \cite{Han2013}. The key to implement approximate computing is to apply the approximation only to non-critical parts of a specific application. Introducing approximate computing to critical areas can be disastrous, causing huge errors in the calculations or even crashes. It is important to make sure that the trade-off is beneficial in most use cases; it doesn't make too much sense that an application is only 1\% more energy efficient and 1\% faster if a 50\% error is introduced. It might also not be worth it to introduce an error if it becomes noticeable to the user.
+
+\subsection{Approximate Computing Techniques}
+
+There are many strategies that can be used for performing approximate computing in both hardware and software, in \cite{Xu2016}, \cite{Mittal2016} and \cite{Han2013} state-of-the-art approximate computing strategies and techniques are reviewed. A few of them are mentioned below.
+
+At the software layer, there are programming languages, that expose approximation to the programmer through language syntax. Approximate-aware compilers can apply techniques such as loop perforation to execute fewer loop iterations and make the program run faster. There are also compilers that can reformulate computations so that those can be run in special hardware accelerators such as Neural Processing Units (NPU).
+
+Some hardware architectures can include specialized ISAs (instruction set architecture) that define instructions that run in an approximate computing mode. Those instructions can leverage the computation to an accelerator or use approximate arithmetic units (ALU), which utilize circuits designed to run faster and that are more energy efficient. Other hardware techniques include approximate circuit synthesis. Axilog, for example, enables language annotations in Verilog for approximate hardware design \cite{Yazdanbakhsh2015}. Memory and storage can also benefit from approximate computing, some techniques include lowering operating voltage, making the refresh rate of DRAM longer, truncating lower bits of floating-point data and disabling error detection and correction mechanisms.
+
+Another important technique is approximate computing through algorithmic transformation \cite{Esmaeilzadeh2012}. Some data or compute intensive part of the code can be transformed into a neural network and that transformed code execution can be offloaded to a neural accelerator. Neural networks, by nature, are general-purpose approximate functions, which naturally fit into the approximate computing paradigm. On the other hand, in order to lower the power consumption and increase the performance of inference in neural networks, approximate computing techniques can be utilized in the networks themselves or in accelerators that run the models. Some of these techniques include reducing the precision of the operations when doing inference \cite{Hanif2018} or designing novel neural accelerators using approximate multipliers or other approximate hardware units \cite{Cheng2019}.
+
+\section{Focus of This Work}
+
+In this thesis, approximate computing techniques involving neural networks will be revisited, this time utilizing Intel's OpenVINO toolkit. Instead of designing and creating new hardware accelerators and techniques, which requires a significant amount of time, the efforts will be focused in the software part of it. The task of designing neural accelerators will be left to the experts, like Movidius, which designed the Myriad X accelerator that is used to get the results for this work.
+
+%OpenVINO is a free toolkit that facilitates the optimization of a deep learning model from a framework and helps deploy the model onto Intel hardware, including CPUs, Intel iGPUs, Movidius VPUs, FPGAs, and Gaussian \& Neural Accelerators (GNAs) \cite{openvino_toolkit}. The Intel Neural Compute Stick 2 is an external neural accelerator that contains one Myriad X VPU, it can be programmed using the OpenVINO toolkit \cite{ncs2}.
+
+In this thesis the focus is to leverage the advantages of these off-the-shelf tools and accelerators to explore approximate computing techniques that involve machine learning. This work aims to answer the following questions: Are OpenVINO and Myriad X suitable to accelerate error-tolerant applications? Can approximate computing techniques be utilized to improve the performance of machine learning applications deployed using OpenVINO and the Myriad X VPU?
+
+Some studies in the past have explored accelerating error-tolerant applications using neural networks \cite{Esmaeilzadeh2012}, \cite{Moreau2015a}. This thesis continues this exploration but this time the objective is to evaluate existing off-the-self accelerators and popular machine learning frameworks. Other studies have focused on improving the execution of neural networks to improve their performance or energy efficiency without sacrificing too much accuracy \cite{Hanif2018}, \cite{Sarwar2018}. However, these studies propose their own specialized solutions. This thesis tests similar ideas as the ones proposed in those studies but applies using frameworks like Tensorflow and OpenVINO which are used commercially to deploy machine learning applications in the real world.
+
+\section{Objectives}
+
+\textbf{Main Objective:}
+
+%Improve the performance of machine learning applications executed on an edge device with an off-the-shelf accelerator using approximate computing techniques.
+%Explore approximate computing techniques to improve machine learning and use machine learning to implement approximate computing.
+%Explore off-the-shelf accelerators to implement algorithmic transformations for approximate computing, and approximate computing techniques to improve machine learning applications.
+Evaluate an off-the-shelf accelerator and readily available machine learning frameworks by implementing algorithmic transformations on error-tolerant applications, and improve the performance and energy efficiency of machine learning applications using approximate computing techniques.
+
+\textbf{Specific Objectives:}
+
+\begin{compactitem}
+    \item Evaluate the OpenVINO toolkit in a PC and in a Rapspberry Pi, using the Intel Neural Compute Stick 2, to understand if it is a viable alternative to apply the algorithmic transformation approximate computing technique on error-tolerant applications.
+	%\item Measure the performance of the OpenVINO toolkit and Intel's Neural Stick 2 on a subset of five error-tolerant applications of the AxBench test-suite.
+	\item Improve the performance of a subset of five error-tolerant applications of the AxBench test-suite by applying the algorithmic transformation approximate computing technique in said applications using the OpenVINO toolkit and running them in the Intel Neural Compute Stick 2.
+	%\item Select and benchmark three machine learning applications with the OpenVINO toolkit and Intel's Neural Stick 2 to set a baseline of execution time and power consumption.
+	%\item Explore approximate computing techniques to improve the performance and energy efficiency of the selected machine learning applications.
+	\item Implement a set of approximate computing techniques to optimize the performance and energy efficiency of the neural networks in a set of machine learning applications without affecting the accuracy of the neural networks in a significant way.
+	\item Evaluate the performance and energy efficiency of OpenVINO and the Intel Neural Compute Stick 2 for a set of approximate computing optimization techniques.
+\end{compactitem}
