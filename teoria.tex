@@ -7,7 +7,7 @@
 
 Artificial neural networks are inspired on how neurons behave and interact in the brain. They are computing systems used in field of machine learning to solve problems in multiple fields, one of the biggest ones being computer vision.
 
-Neural networks are composed of artificial neurons which combine their inputs with their internal state, pass that to an activation function and produce a result. Figure \ref{fig:neuron} shows the definition of a single artificial neuron \cite{nn_def}.
+Neural networks are composed of artificial neurons which combine their inputs with their internal state, pass that to an activation function, and produce a result. Figure \ref{fig:neuron} shows the definition of a single artificial neuron \cite{nn_def}.
 
 \begin{figure}[thbp]
 	\centering
@@ -16,7 +16,7 @@ Neural networks are composed of artificial neurons which combine their inputs wi
 	\label{fig:neuron}
 \end{figure}
 
-Multiple neurons stacked define a layer. The outputs from one layer connect to the inputs of another layer to form a neural network. There can be many layers in a single network, the term deep learning comes from the concept of having deep networks, which basically is a network with multiple inner layers. Figure \ref{fig:network} shows a simple network where every output from each layer connects to every input of the next layer. That is called a fully-connected or dense layer \cite{intro_cnn}.
+Multiple neurons stacked define a layer. The outputs from one layer connect to the inputs of another layer to form a neural network. There can be many layers in a single network. The term deep learning comes from the concept of having deep networks, which basically is a network with multiple inner layers. Figure \ref{fig:network} shows a simple network where every output from each layer connects to every input of the next layer. That is called a fully-connected or dense layer \cite{intro_cnn}.
 
 \begin{figure}[thbp]
 	\centering
@@ -31,7 +31,7 @@ To train neural networks the weights and biases of the neurons are tweaked itera
 
 Convolutional neural networks are a class of deep neural networks that are useful in computer vision fields. They are efficient at analyzing images for applications like image recognition and classification.
 
-CNNs utilize image filters or kernels to do a transformation in a small group of pixels and obtain a result. Kernels are usually a square of a fixed amount of pixels, typical kernels are 3x3 or 5x5. The kernel is slid through the image and every pixel is multiplied by the kernel weights to produce one pixel for the next layer. Figure \ref{fig:cnn1} shows a visualization of a 3x3 kernel, in this example the pixels in the first layer will be multiplied by the corresponding weights of the kernel and those results will be added together to produce a single value for the next layer \cite{guide_cnn}.
+CNNs utilize image filters or kernels to do a transformation in a small group of pixels and obtain a result. Kernels are usually a square of a fixed amount of pixels, as typical kernels are 3x3 or 5x5. The kernel is slid through the image and every pixel is multiplied by the kernel weights to produce one pixel for the next layer. Figure \ref{fig:cnn1} shows a visualization of a 3x3 kernel, in this example the pixels in the first layer will be multiplied by the corresponding weights of the kernel and those results will be added together to produce a single value for the next layer \cite{guide_cnn}.
 
 \begin{figure}[thbp]
 	\centering
@@ -49,7 +49,7 @@ CNNs usually utilize multiple kernels at the same time to produce several images
 	\label{fig:cnn2}
 \end{figure}
 
-Because of how CNNs work, the trivial example of having a 1x1xC1 (height=1, width=1, channels=C1) layer followed by a 1x1xC2 layer and using a 1x1 kernel is the same as having a simple layer of \textit{C1} number of inputs followed by a fully-connected layer of \textit{C2} number of neurons. If the 1x1 kernel is kept but the layer dimensions are changed to an arbitrary height (H) and width (W) it would be the same as having HxW individual fully-connected layers. This can be exploited to run several full-connected neural networks in parallel in neural accelerators that are optimized for CNNs.
+Due to of how CNNs work, the trivial example of having a 1x1xC1 (height=1, width=1, channels=C1) layer followed by a 1x1xC2 layer and using a 1x1 kernel is the same as having a simple layer of \textit{C1} number of inputs followed by a fully-connected layer of \textit{C2} number of neurons. If the 1x1 kernel is kept but the layer dimensions are changed to an arbitrary height (H) and width (W) it would be the same as having HxW individual fully-connected layers. This can be exploited to run several full-connected neural networks in parallel in neural accelerators that are optimized for CNNs.
 
 \subsection{Software-Level Optimizations and Approximations for Neural Networks}
 
@@ -62,7 +62,7 @@ Figure \ref{fig:prune} shows an example of how a neural network might look like 
 \begin{figure}[thbp]
 	\centering
 	\includegraphics[scale=0.5]{prune}
-	\caption{Example of neural network before and after pruning \cite{Han2015}.}
+	\caption[Example of neural network before and after pruning.]{Example of neural network before and after pruning \cite{Han2015}.}
 	\label{fig:prune}
 \end{figure}
 
@@ -73,7 +73,7 @@ Sliding a kernel through a CNN requires many operations, and it increases dramat
 \begin{figure}[thbp]
 	\centering
 	\includegraphics[scale=0.5]{normal_conv}
-	\caption{Normal convolution example \cite{sep_conv}.}
+	\caption[Normal convolution example.]{Normal convolution example \cite{sep_conv}.}
 	\label{fig:normal_conv}
 \end{figure}
 
@@ -82,14 +82,14 @@ A normal convolution can be separated in two stages: a depthwise convolution and
 \begin{figure}[thbp]
 	\centering
 	\includegraphics[scale=0.5]{depth_conv}
-	\caption{Depthwise convolution example \cite{sep_conv}.}
+	\caption[Depthwise convolution example.]{Depthwise convolution example \cite{sep_conv}.}
 	\label{fig:depth_conv}
 \end{figure}
 
 \begin{figure}[thbp]
 	\centering
 	\includegraphics[scale=0.5]{point_conv}
-	\caption{Pointwise convolution example \cite{sep_conv}.}
+	\caption[Pointwise convolution example.]{Pointwise convolution example \cite{sep_conv}.}
 	\label{fig:point_conv}
 \end{figure}
 
@@ -152,7 +152,7 @@ The Model Optimizer is a tool that facilitates the transition between the traini
 \begin{figure}[thbp]
 	\centering
 	\includegraphics[scale=0.55]{openvino}
-	\caption{OpenVINO workflow \cite{openvino_toolkit}.}
+	\caption[OpenVINO workflow.]{OpenVINO workflow \cite{openvino_toolkit}.}
 	\label{fig:openvino}
 \end{figure}
 

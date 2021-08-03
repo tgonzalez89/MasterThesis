@@ -7,8 +7,6 @@ OpenVINO is designed with the objective to accelerate machine learning applicati
 
 The next section describes the details of the selected machine learning applications that are tested. Table \ref{tab:app_summary} show the summary of the data-sets used in the applications. After that, the description of the details of the selected topologies for each application are presented. The methodology details are shared in the following sections: the selected approximate computing optimization techniques that are implemented and the different parameters that are measured when running the applications.
 
-\section{Applications}
-
 \begin{table}[thbp]
 \centering
 \caption{Applications Summary}
@@ -23,6 +21,8 @@ Scene                                              & 6                          
 \end{tabular}
 \end{table}
 
+\section{Applications}
+
 \subsection{Audio Classification}
 
 For this application the objective is to try to identify spoken digits. The dataset used is the Free Spoken Digit Dataset \cite{fsdd}. This dataset consists of 10 classes: all the digits from zero to nine. It is composed of 3000 recordings from 6 different speakers with different accents, this means that for each digit there are 50 recordings per speaker. The dataset itself is made from wav files. These wav files are converted to spectrograms before being used. This makes the classification process easier since now the dataset is in a 2D format which can be fed to a traditional 2D CNN and the problem can be treated in the same way as a image classification problem. The resulting spectrogram has the following properties: the \textit{x} axis represents time, the \textit{y} axis represents the frequency, and the pixel intensity, in gray-scale representation, represents the amplitude of a specific frequency at a given time (see Figure \ref{fig:specs}).
@@ -30,7 +30,7 @@ For this application the objective is to try to identify spoken digits. The data
 \begin{figure}[thbp]
 	\centering
 	\includegraphics[scale=0.25]{specs}
-	\caption{Spectrogram examples. Generated from audio files from the Free Spoken Digit Dataset \cite{fsdd}.}
+	\caption[Spectrogram examples. Generated from audio files from the Free Spoken Digit Dataset.]{Spectrogram examples. Generated from audio files from the Free Spoken Digit Dataset \cite{fsdd}.}
 	\label{fig:specs}
 \end{figure}
 
@@ -41,7 +41,7 @@ This application classifies images of different types of fruits. The dataset is 
 \begin{figure}[thbp]
 	\centering
 	\includegraphics[scale=1.0]{fruits}
-	\caption{Fruit examples. Taken from the Fruit Images Dataset \cite{fruit_ds}.}
+	\caption[Fruit examples. Taken from the Fruit Images Dataset.]{Fruit examples. Taken from the Fruit Images Dataset \cite{fruit_ds}.}
 	\label{fig:fruits}
 \end{figure}
 
@@ -52,7 +52,7 @@ These application classifies images of different natural scenes from around the 
 \begin{figure}[thbp]
 	\centering
 	\includegraphics[scale=0.75]{scenes}
-	\caption{Scenes examples. Taken from the Intel Image Classification Dataset \cite{intel_ds}.}
+	\caption[Scenes examples. Taken from the Intel Image Classification Dataset.]{Scenes examples. Taken from the Intel Image Classification Dataset \cite{intel_ds}.}
 	\label{fig:scenes}
 \end{figure}
 
